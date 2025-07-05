@@ -50,7 +50,7 @@ function Recipes() {
 
           
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg">
-              Save
+              view or save
             </button>
         </div>
       </div>
@@ -61,7 +61,6 @@ function Recipes() {
     const filteredData = data.filter((data) => data.id !== val);
     console.log(filteredData);
   };
-
   return (
     <div className="px-20 py-10">
       <h1 className="text-3xl font-medium">Recipes section</h1>
@@ -69,7 +68,7 @@ function Recipes() {
         Try to serach new recipes of our platefrom !
       </p>
 
-      <div className="mt-5 flex gap-4">{recipe}</div>
+      <div className="mt-5 flex gap-4 flex-wrap">{recipe}</div>
     </div>
   );
 }

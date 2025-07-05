@@ -127,10 +127,10 @@ function Home() {
           <h2 className="text-4xl font-bold mb-10 text-white">
             Our Signature Dishes
           </h2>
-          <div className=" flex justify-center gap-10">{renderpr}</div>
+          <div className=" flex  items-start gap-10 flex-wrap">{renderpr}</div>
         </div>
       </div>
-      <div className="flex">
+      <div className="flex bg-gray-700">
         <FruitPromoSection/>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="flex justify-between items-center py-2 sticky top-0 backdrop-blur-sm">
+    <div className="flex justify-between items-center py-2 sticky top-0 backdrop-blur-sm z-10">
       <h2 className="font-extralight text-3xl">The Royal <span className="text-orange-500 font-bold">Chairoom</span></h2>
       <div className="flex gap-10 font-smibol">
         <NavLink
