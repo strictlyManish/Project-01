@@ -1,13 +1,10 @@
-import { toast } from "react-toastify";
-import Navbar from "./components/Navbar";
-import Mainroutes from './routes/Mainroutes'
+
+import React from 'react'
+
 function App() {
   return (
-    <div className="bg-gray-900 h-screen w-screen px-10 text-white select-none overflow-x-hidden relative">
-      <Navbar />
-      <Mainroutes/>
-    </div>
-  );
+    <div>App</div>
+  )
 }
 
-export default App;
+export default App
