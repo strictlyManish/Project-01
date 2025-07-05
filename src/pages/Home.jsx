@@ -2,6 +2,7 @@ import banner from "../assets/banner.jpg";
 import React, { useContext } from "react";
 import { recipescontext } from "../context/RecipesContext";
 import FruitPromoSection from './FruitPromoSection'
+
 function Home() {
   const { data } = useContext(recipescontext);
   const renderpr = data.map((val, idx) => {
