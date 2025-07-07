@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 
+
 function Navigation() {
   return (
     <div className="flex items-center justify-between">
-      <h3 className="text-3xl">Restro</h3>
+      <h3 className="text-3xl cursor-pointer">Restro</h3>
       <div className="text-1xl font-normal flex gap-6">
         <NavLink to="/" className={(e)=> e.isActive ? 'text-yellow-400 border-b':'text-white'}>Home</NavLink>
         <NavLink to="/recipes" className={(e)=> e.isActive ? 'text-yellow-400 border-b':'text-white'}>Recipes</NavLink>
