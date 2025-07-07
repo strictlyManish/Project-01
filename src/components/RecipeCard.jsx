@@ -6,10 +6,10 @@ function RecipeCard(props) {
     <Link
       to={`/recipes/${id}`}
       key={id}
-      className="block w-[18vw] bg-gray-700 p-2 rounded-md hover:shadow-2xl transition-all duration-300 ease-in-out"
+      className="block w-[18vw] bg-gray-700 p-2 rounded-md hover:shadow-lg transition-all duration-300 ease-in-out"
     >
       <div className="flex gap-1 flex-col">
-        <img src={url} alt="" className="w-full rounded-md overflow-hidden" />
+        <img src={url} alt="" className="w-full h-[20vh] object-cover rounded-md overflow-hidden" />
         <h2 className="text-xl uppercase text-orange-400">{title}</h2>
         <p className="text-gray-300">
           Description
