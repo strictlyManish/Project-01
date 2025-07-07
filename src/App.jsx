@@ -1,9 +1,12 @@
-
-import React from 'react'
+import Navigation from "./components/Navigation"
+import MainRoute from './routes/MainRoute';
 
 function App() {
   return (
-    <div>App</div>
+    <div className="h-screen w-screen bg-gray-800 p-5 text-white">
+      <Navigation/>
+      <MainRoute/>
+    </div>
   )
 }
 
