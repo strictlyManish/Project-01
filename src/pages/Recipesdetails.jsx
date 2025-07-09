@@ -33,6 +33,7 @@ function Recipesdetails() {
     const copydata = [...data];
     copydata[index] = { ...copydata, ...details };
     setData(copydata);
+    localStorage.setItem("data",JSON.stringify(copydata))
     toast.success("Date updated !");
     navigate("/recipes");
   };
@@ -40,6 +41,8 @@ function Recipesdetails() {
   const delhandler = () => {
     const filteredData = data.filter((r) => r.id !== params.id);
     setData(filteredData);
+    localStorage.setItem("data",JSON.stringify(filteredData))
+
     toast.error("Date Deleted !");
     navigate("/recipes");
   };

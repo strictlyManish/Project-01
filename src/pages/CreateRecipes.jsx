@@ -16,7 +16,12 @@ function CreateRecipes() {
 
   const create = (details) =>{
     details.id = nanoid(6);
-    setData((prev) => [...prev, details]);
+    
+    const copydata = [...data]
+    copydata.push(details)
+    setData(copydata)
+    localStorage.setItem("data",JSON.stringify(copydata))
+
     toast.success('Recipes Created')
     reset()
     navigate('/recipes')
