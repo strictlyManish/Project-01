@@ -47,6 +47,16 @@ function Recipesdetails() {
     navigate("/recipes");
   };
 
+
+  const addtofav = (dets) =>{
+    const filteredData = data.filter((r) => r.id !== dets);
+    setData(filteredData);
+    localStorage.setItem("fav",JSON.stringify(filteredData))
+
+    toast.success("Added to favorite !");
+    navigate("/favorite");
+  }
+
   return filtedData ? (
   <div className="w-screen min-h-screen px-10 py-8 flex gap-10 justify-center items-star text-white">
     {/* Left Panel - Image and Title */}
@@ -59,6 +69,7 @@ function Recipesdetails() {
         alt="Recipe"
         className="w-full rounded-lg shadow-md"
       />
+      <button onClick={()=>{addtofav(data.id)}} className="self-start bg-red-500 px-5 rounded-3xl py-2 active:bg-green-600">Like 👍</button>
     </div>
 
     {/* Right Panel - Form */}

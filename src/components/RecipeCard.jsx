@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 function RecipeCard(props) {
   const { id, title, desc, ingr, cat, url } = props.recipe;
