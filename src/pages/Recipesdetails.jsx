@@ -48,136 +48,137 @@ function Recipesdetails() {
   };
 
   return filtedData ? (
-    <div className="w-screen flex gap-2 justify-center items-center scroll-m-0">
-      <div className="w-[25%] flex flex-col gap-6">
-        <h2 className="text-2xl uppercase font-medium text-orange-500">
-          {filtedData.title}
-        </h2>
-        <img src={filtedData.url} alt="" className="w-[100%] rounded-md" />
-      </div>
-      <div className="w-[60%] scroll-m-0">
-        <form onSubmit={handleSubmit(create)} className="flex flex-col gap-2">
+  <div className="w-screen min-h-screen px-10 py-8 flex gap-10 justify-center items-star text-white">
+    {/* Left Panel - Image and Title */}
+    <div className="w-[30%] flex flex-col gap-4">
+      <h2 className="text-3xl font-semibold text-orange-500 uppercase">
+        {filtedData.title}
+      </h2>
+      <img
+        src={filtedData.url}
+        alt="Recipe"
+        className="w-full rounded-lg shadow-md"
+      />
+    </div>
+
+    {/* Right Panel - Form */}
+    <div className="w-[60%]">
+      <form onSubmit={handleSubmit(create)} className="flex flex-col gap-5">
+        {/* Title */}
+        <div>
           <input
-            
             {...register("title", { required: "can not be empty" })}
             type="text"
             placeholder="Recipe title"
-            className="p-3 w-[60%] rounded bg-zinc-700 outline-none shadow-md"
+            className="w-full p-3 rounded bg-zinc-700 outline-none"
           />
           {errors.title && (
-            <small className="text-red-500 capitalize">
-              {errors.title.message}
-            </small>
+            <small className="text-red-500">{errors.title.message}</small>
           )}
+        </div>
+
+        {/* Chief Name */}
+        <div>
           <input
-            
             {...register("chief", { required: "can not be empty" })}
             type="text"
             placeholder="Chief name"
-            className="p-3 w-[60%] rounded bg-zinc-700 outline-none shadow-md"
+            className="w-full p-3 rounded bg-zinc-700 outline-none"
           />
           {errors.chief && (
-            <small className="text-red-500 capitalize">
-              {errors.chief.message}
-            </small>
+            <small className="text-red-500">{errors.chief.message}</small>
           )}
+        </div>
 
+        {/* URL */}
+        <div>
           <input
-           
             {...register("url", { required: "can not be empty" })}
             type="url"
-            placeholder="Paste URL "
-            className="p-3 w-[60%] rounded bg-zinc-700 outline-none shadow-md"
+            placeholder="Paste Image URL"
+            className="w-full p-3 rounded bg-zinc-700 outline-none"
           />
           {errors.url && (
-            <small className="text-red-500 capitalize">
-              {errors.url.message}
-            </small>
+            <small className="text-red-500">{errors.url.message}</small>
           )}
+        </div>
 
-          <div className="flex w-[60%] gap-2">
-            <div>
-              <textarea
-                {...register("desc", { required: "can not be empty" })}
-                placeholder="Discription"
-                className="italic resize-none outline-none px-3 py-4 rounded bg-gray-600"
-                rows={4}
-                cols={30}
-                
-              ></textarea>
-              <br />
-              {errors.desc && (
-                <small className="text-red-500 capitalize">
-                  {errors.desc.message}
-                </small>
-              )}
-            </div>
-            <div>
-              <textarea
-                {...register("ingr", { required: "can not be empty" })}
-                placeholder="Ingridients"
-                className="italic resize-none outline-none px-3 py-4 rounded bg-gray-600"
-                rows={4}
-                cols={30}
-                
-              ></textarea>
-              <br />
-              {errors.ingr && (
-                <small className="text-red-500 capitalize">
-                  {errors.ingr.message}
-                </small>
-              )}
-            </div>
-            <div>
-              <textarea
-                {...register("ins", { required: "can not be empty" })}
-                placeholder="Instruction"
-                className="italic resize-none outline-none px-3 py-4 rounded bg-gray-600"
-                rows={4}
-                cols={30}
-                
-              ></textarea>
-              <br />
-              {errors.ins && (
-                <small className="text-red-500 capitalize">
-                  {errors.ins.message}
-                </small>
-              )}
-            </div>
+        {/* Textareas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <textarea
+              {...register("desc", { required: "can not be empty" })}
+              placeholder="Description"
+              rows={4}
+              className="w-full p-3 rounded bg-gray-700 resize-none outline-none"
+            ></textarea>
+            {errors.desc && (
+              <small className="text-red-500">{errors.desc.message}</small>
+            )}
           </div>
+          <div>
+            <textarea
+              {...register("ingr", { required: "can not be empty" })}
+              placeholder="Ingredients"
+              rows={4}
+              className="w-full p-3 rounded bg-gray-700 resize-none outline-none"
+            ></textarea>
+            {errors.ingr && (
+              <small className="text-red-500">{errors.ingr.message}</small>
+            )}
+          </div>
+          <div>
+            <textarea
+              {...register("ins", { required: "can not be empty" })}
+              placeholder="Instructions"
+              rows={4}
+              className="w-full p-3 rounded bg-gray-700 resize-none outline-none"
+            ></textarea>
+            {errors.ins && (
+              <small className="text-red-500">{errors.ins.message}</small>
+            )}
+          </div>
+        </div>
+
+        {/* Category */}
+        <div>
           <select
-            
-            {...register("cat", { required: "please selcet one" })}
-            className="w-[20%]  px-3 py-3 rounded bg-gray-600 outline-none"
+            {...register("cat", { required: "please select one" })}
+            className="w-[50%] p-3 rounded bg-gray-700 outline-none"
           >
-            <option disabled={true}>Select any one</option>
+            <option disabled selected value="">
+              Select a category
+            </option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
             <option value="super">Super</option>
-            <option value="breakfast">BreakFast</option>
+            <option value="breakfast">Breakfast</option>
           </select>
           {errors.cat && (
-            <small className="text-red-500 capitalize">
-              {errors.cat.message}
-            </small>
+            <small className="text-red-500">{errors.cat.message}</small>
           )}
-          <div className="flex gap-5">
-            <button className="items-start w-fit bg-orange-500 px-10 py-2 rounded">
-              Update Recipe
-            </button>
-            <button
-              onClick={delhandler}
-              className="items-start w-fit bg-red-600 px-10 py-2 rounded"
-            >
-              Delete Recipe
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex gap-4 mt-4">
+          <button className="bg-orange-500 px-6 py-2 rounded text-white font-semibold">
+            Update Recipe
+          </button>
+          <button
+            onClick={delhandler}
+            type="button"
+            className="bg-red-600 px-6 py-2 rounded text-white font-semibold"
+          >
+            Delete Recipe
+          </button>
+        </div>
+      </form>
     </div>
-  ) : (
-    "Loding.."
-  );
+  </div>
+) : (
+  "Loading..."
+);
+
 }
 
 export default Recipesdetails;

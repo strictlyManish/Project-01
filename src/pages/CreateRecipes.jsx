@@ -30,64 +30,123 @@ function CreateRecipes() {
   
 
   return (
+    <div className="min-h-screen px-10 py-8 text-white">
+  {/* Title */}
+  <div className="mb-6">
+    <h1 className="text-zinc-400 uppercase text-3xl font-semibold">
+      Create Your Own Recipe
+    </h1>
+  </div>
+
+  {/* Form */}
+  <form
+    onSubmit={handleSubmit(create)}
+    className="flex flex-col gap-5 max-w-4xl"
+  >
+    {/* Title Input */}
     <div>
-      <div>
-        <h1 className="text-zinc-500 uppercase text-2xl">
-          Create Your own recipe
-        </h1>
-      </div>
-      <form onSubmit={handleSubmit(create)} className="mt-6 flex flex-col w-fit gap-2">
-        <input {...register('title',{required:'can not be empty'})} type="text" placeholder="Recipe title" className="p-3 w-[60%] rounded bg-zinc-700 outline-none shadow-md" />
-        {errors.title && <small className="text-red-500 capitalize">{errors.title.message}</small>}
-        <input {...register('chief' ,{required:'can not be empty'})} type="text" placeholder="Chief name" className="p-3 w-[60%] rounded bg-zinc-700 outline-none shadow-md" />
-        {errors.chief && <small className="text-red-500 capitalize">{errors.chief.message}</small>}
-
-        <input {...register('url',{required:'can not be empty'})} type="url" placeholder="Paste URL " className="p-3 w-[60%] rounded bg-zinc-700 outline-none shadow-md" />
-        {errors.url && <small className="text-red-500 capitalize">{errors.url.message}</small>}
-
-        <div className="flex gap-2">
-         <div>
-           <textarea
-             {...register('desc',{required:'can not be empty'})}
-            placeholder="Discription"
-            className="italic resize-none outline-none px-3 py-4 rounded bg-gray-600"
-            rows={4} cols={35}
-          ></textarea>
-          <br />
-        {errors.desc && <small className="text-red-500 capitalize">{errors.desc.message}</small>}
-         </div>
-         <div>
-           <textarea
-             {...register('ingr',{required:'can not be empty'})}
-            placeholder="Ingridients"
-            className="italic resize-none outline-none px-3 py-4 rounded bg-gray-600"
-            rows={4} cols={35}
-          ></textarea>
-          <br />
-        {errors.ingr && <small className="text-red-500 capitalize">{errors.ingr.message}</small>}
-         </div>
-         <div>
-           <textarea
-             {...register('ins',{required:'can not be empty'})}
-            placeholder="Instruction"
-            className="italic resize-none outline-none px-3 py-4 rounded bg-gray-600"
-            rows={4} cols={35}
-          ></textarea>
-          <br />
-        {errors.ins && <small className="text-red-500 capitalize">{errors.ins.message}</small>}
-         </div>
-        </div>
-        <select {...register('cat',{required:'please selcet one'})} className="w-[20%]  px-3 py-3 rounded bg-gray-600 outline-none">
-          <option disabled={true}>Select any one</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="super">Super</option>
-          <option value="breakfast">BreakFast</option>
-          </select>
-          {errors.cat && <small className="text-red-500 capitalize">{errors.cat.message}</small>}
-        <button className="items-start w-fit bg-orange-500 px-10 py-2 rounded">Create Recipe</button>
-      </form>
+      <input
+        {...register("title", { required: "can not be empty" })}
+        type="text"
+        placeholder="Recipe title"
+        className="w-full p-3 rounded bg-zinc-700 outline-none shadow-md"
+      />
+      {errors.title && (
+        <small className="text-red-500">{errors.title.message}</small>
+      )}
     </div>
+
+    {/* Chief Input */}
+    <div>
+      <input
+        {...register("chief", { required: "can not be empty" })}
+        type="text"
+        placeholder="Chief name"
+        className="w-full p-3 rounded bg-zinc-700 outline-none shadow-md"
+      />
+      {errors.chief && (
+        <small className="text-red-500">{errors.chief.message}</small>
+      )}
+    </div>
+
+    {/* Image URL Input */}
+    <div>
+      <input
+        {...register("url", { required: "can not be empty" })}
+        type="url"
+        placeholder="Paste Image URL"
+        className="w-full p-3 rounded bg-zinc-700 outline-none shadow-md"
+      />
+      {errors.url && (
+        <small className="text-red-500">{errors.url.message}</small>
+      )}
+    </div>
+
+    {/* Textareas in Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <textarea
+          {...register("desc", { required: "can not be empty" })}
+          placeholder="Description"
+          rows={4}
+          className="w-full p-3 rounded bg-gray-700 resize-none outline-none italic"
+        ></textarea>
+        {errors.desc && (
+          <small className="text-red-500">{errors.desc.message}</small>
+        )}
+      </div>
+
+      <div>
+        <textarea
+          {...register("ingr", { required: "can not be empty" })}
+          placeholder="Ingredients"
+          rows={4}
+          className="w-full p-3 rounded bg-gray-700 resize-none outline-none italic"
+        ></textarea>
+        {errors.ingr && (
+          <small className="text-red-500">{errors.ingr.message}</small>
+        )}
+      </div>
+
+      <div>
+        <textarea
+          {...register("ins", { required: "can not be empty" })}
+          placeholder="Instructions"
+          rows={4}
+          className="w-full p-3 rounded bg-gray-700 resize-none outline-none italic"
+        ></textarea>
+        {errors.ins && (
+          <small className="text-red-500">{errors.ins.message}</small>
+        )}
+      </div>
+    </div>
+
+    {/* Category Selector */}
+    <div>
+      <select
+        {...register("cat", { required: "please select one" })}
+        className="w-[50%] px-3 py-3 rounded bg-gray-700 outline-none"
+      >
+        <option disabled selected value="">
+          Select a category
+        </option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="super">Super</option>
+        <option value="breakfast">Breakfast</option>
+      </select>
+      {errors.cat && (
+        <small className="text-red-500">{errors.cat.message}</small>
+      )}
+    </div>
+
+    {/* Submit Button */}
+    <button className="w-fit bg-orange-500 hover:bg-orange-600 px-10 py-2 rounded text-white font-semibold">
+      Create Recipe
+    </button>
+  </form>
+</div>
+
   );
 }
 

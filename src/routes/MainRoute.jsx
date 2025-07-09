@@ -7,6 +7,8 @@ import Contact from "../pages/Contact";
 import Service from "../pages/Service";
 import CreateRcipes from '../pages/CreateRecipes'
 import Recipesdetails from '../pages/Recipesdetails'
+import Favorite from "../pages/Favorite";
+
 function MainRoute() {
   return (
     <div className="mt-5">
@@ -18,6 +20,7 @@ function MainRoute() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/service" element={<Service />} />
         <Route path="/about" element={<About />} />
+        <Route path="/favorite" element={<Favorite />} />
       </Routes>
     </div>
   );

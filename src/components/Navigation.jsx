@@ -12,6 +12,7 @@ function Navigation() {
         <NavLink to="/contact" className={(e)=> e.isActive ? 'text-yellow-400 border-b':'text-white'}>Contact</NavLink>
         <NavLink to="/service" className={(e)=> e.isActive ? 'text-yellow-400 border-b':'text-white'}>Service</NavLink>
         <NavLink to="/about" className={(e)=> e.isActive ? 'text-yellow-400 border-b':'text-white'}>About</NavLink>
+        <NavLink to="/favorite" className={(e)=> e.isActive ? 'text-yellow-400 border-b':'text-white'}>Favorite</NavLink>
       </div>
     </div>
   );
